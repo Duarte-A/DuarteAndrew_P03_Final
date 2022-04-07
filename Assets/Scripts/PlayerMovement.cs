@@ -23,6 +23,14 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
+    CursorLockMode lockMode;
+
+    void Awake()
+    {
+        lockMode = CursorLockMode.Locked;
+        Cursor.lockState = lockMode;
+    }
+
     // Update is called once per frame
     void Update()
     {
