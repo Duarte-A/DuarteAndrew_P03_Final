@@ -12,6 +12,9 @@ public class ThirdPersonMovement : MonoBehaviour
     public CharacterController controller;
     public Transform cam;
 
+    private Rigidbody _rb;
+    public Animator anim;
+
     public float speed = 6;
     public float gravity = -9.81f;
     public float jumpHeight = 3;
@@ -26,6 +29,11 @@ public class ThirdPersonMovement : MonoBehaviour
     public float turnSmoothTime = 0.1f;
 
     CursorLockMode lockMode;
+
+    void Start()
+    {
+        this._rb = GetComponent<Rigidbody>();
+    }
 
     void Awake()
     {
@@ -55,6 +63,12 @@ public class ThirdPersonMovement : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+
+        this.transform.position += direction * 0.04f;
+
+        this.anim.SetFloat("vertical", vertical);
+        this.anim.SetFloat("horizontal", horizontal);
+
 
         if (direction.magnitude >= 0.1f)
         {
