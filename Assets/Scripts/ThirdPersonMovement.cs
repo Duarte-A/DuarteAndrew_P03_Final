@@ -30,16 +30,17 @@ public class ThirdPersonMovement : MonoBehaviour
 
     CursorLockMode lockMode;
 
-    void Start()
-    {
-        this._rb = GetComponent<Rigidbody>();
-    }
-
     void Awake()
     {
         lockMode = CursorLockMode.Locked;
         Cursor.lockState = lockMode;
     }
+
+    void Start()
+    {
+        this._rb = GetComponent<Rigidbody>();
+    }
+
 
     // Update is called once per frame
     void Update()
