@@ -33,8 +33,8 @@ public class MovementInput : MonoBehaviour {
     [Range(0, 1f)]
     public float StopAnimTime = 0.15f;
 
-    public float verticalVel;
-    private Vector3 moveVector;
+    public float acceleration;
+    public Vector3 moveAxis;
 
 
 	CursorLockMode lockMode;
@@ -59,14 +59,14 @@ public class MovementInput : MonoBehaviour {
         isGrounded = controller.isGrounded;
         if (isGrounded)
         {
-            verticalVel -= 0;
+            acceleration -= 0;
         }
         else
         {
-            verticalVel -= 1;
+            acceleration -= 1;
         }
-        moveVector = new Vector3(0, verticalVel * .2f * Time.deltaTime, 0);
-        controller.Move(moveVector);
+        moveAxis = new Vector3(0, acceleration * .2f * Time.deltaTime, 0);
+        controller.Move(moveAxis);
 
 
     }
