@@ -61,3 +61,11 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+
+Assets/Animation/
+
+Assets/Jammo-Character/
+
+Assets/Scripts/Mechanics/HDRP/
+
+Assets/Scripts/Player/
